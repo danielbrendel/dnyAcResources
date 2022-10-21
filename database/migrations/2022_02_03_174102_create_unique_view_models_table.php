@@ -26,7 +26,7 @@ class CreateUniqueViewModelsTable extends Migration
     {
         Schema::create('unique_view_models', function (Blueprint $table) {
             $table->id();
-            $table->integer('frameworkId');
+            $table->integer('itemId');
             $table->string('address');
             $table->timestamps();
         });

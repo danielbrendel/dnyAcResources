@@ -27,29 +27,29 @@ class TwitterModel extends Model
     use HasFactory;
 
     /**
-     * Post approved framework item info to Twitter
+     * Post approved resource item info to Twitter
      * 
-     * @param $framework
+     * @param $item
      * @return void
      * @throws \Exception
      */
-    public static function postToTwitter($framework)
+    public static function postToTwitter($item)
     {
         try {
             $connection = new TwitterOAuth(env('TWITTERBOT_APIKEY',), env('TWITTERBOT_APISECRET'), env('TWITTERBOT_ACCESS_TOKEN'), env('TWITTERBOT_ACCESS_TOKEN_SECRET'));  
-            $media = $connection->upload('media/upload', ['media' => public_path() . '/gfx/logos/' . $framework->logo]);
+            $media = $connection->upload('media/upload', ['media' => public_path() . '/gfx/logos/' . $item->logo]);
  
             if (!isset($media->media_id_string)) {
                 throw new \Exception('Failed to upload media to Twitter: ' . print_r($media, true));
             }
 
-            $status = $framework->name . ': ' . $framework->summary . ' - by ' . $framework->creator;
+            $status = $item->name . ': ' . $item->summary . ' - by ' . $item->creator;
 
-            if (($framework->twitter !== null) && (is_string($framework->twitter)) && (strlen($framework->twitter) > 0)) {
-                $status .= ' @' . $framework->twitter;
+            if (($item->twitter !== null) && (is_string($item->twitter)) && (strlen($item->twitter) > 0)) {
+                $status .= ' @' . $item->twitter;
             }
 
-            $status .= ' ' . url('/view/' . $framework->slug) . ' ' . env('TWITTERBOT_TAGS');
+            $status .= ' ' . url('/view/' . $item->slug) . ' ' . env('TWITTERBOT_TAGS');
 
             $parameters = [
                 'status' => $status,
@@ -75,7 +75,7 @@ class TwitterModel extends Model
     public static function cronjob()
     {
         try {
-            $item = FrameworkModel::where('twitter_posted', '=', false)->where('approved', '=', true)->orderBy('id', 'asc')->first();
+            $item = ItemModel::where('twitter_posted', '=', false)->where('approved', '=', true)->orderBy('id', 'asc')->first();
 
             if ($item !== null) {
                 TwitterModel::postToTwitter($item);

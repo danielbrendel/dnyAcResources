@@ -20,14 +20,14 @@ use Illuminate\Support\Facades\Cache;
 /**
  * Class UniqueViewModel
  * 
- * Manager of unique framework view counting
+ * Manager of unique item view counting
  */
 class UniqueViewModel extends Model
 {
     use HasFactory;
 
     /**
-     * Add IP address as viewer for given framework item and return view count
+     * Add IP address as viewer for given resource item and return view count
      *
      * @param $id
      * @return int
@@ -39,16 +39,16 @@ class UniqueViewModel extends Model
             $count = 0;
             $ipAddress = md5(request()->ip());
 
-            $item = static::where('frameworkId', '=', $id)->where('address', '=', $ipAddress)->first();
+            $item = static::where('itemId', '=', $id)->where('address', '=', $ipAddress)->first();
             if (!$item) {
                 $item = new self();
-                $item->frameworkId = $id;
+                $item->itemId = $id;
                 $item->address = $ipAddress;
                 $item->save();
             }
 
-            $count = Cache::remember('view_for_framework_' . $id, 60 * 15, function() use ($id) {
-                return static::where('frameworkId', '=', $id)->count();
+            $count = Cache::remember('view_for_item_' . $id, 60 * 15, function() use ($id) {
+                return static::where('itemId', '=', $id)->count();
             });
 
             return $count;

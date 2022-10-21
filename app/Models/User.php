@@ -20,7 +20,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\PushModel;
 use App\Models\MailerModel;
-use App\Models\FrameworkModel;
+use App\Models\ItemModel;
 use App\Models\ReviewModel;
 use App\Models\ReportModel;
 
@@ -490,9 +490,9 @@ class User extends Authenticatable
                 $review->delete();
             }
 
-            $frameworks = FrameworkModel::where('userId', '=', $userId)->get();
-            foreach ($frameworks as $framework) {
-                $framework->delete();
+            $items = ItemModel::where('userId', '=', $userId)->get();
+            foreach ($items as $item) {
+                $item->delete();
             }
 
             $reports = ReportModel::where('userId', '=', $userId)->get();
