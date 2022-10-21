@@ -298,7 +298,7 @@ class ItemController extends Controller
             if (!$item) {
                 throw new \Exception('Invalid item or insufficient permissions: ' . $id);
             }
-
+            
             return view('home.edit', [
                 'captcha' => CaptchaModel::createSum(session()->getId()),
                 'user' => $user,

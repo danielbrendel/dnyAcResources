@@ -35,8 +35,8 @@
                             <label class="label">{{ __('app.item_type') }}</label>
                             <div class="control">
                                 <select class="input" name="type">
-                                    @foreach (\App\Models\TypeModel::getTypes() as $item)
-                                        <option value="{{ $item->id }}" @if ($item->id === $item->typeId) {{ 'selected' }} @endif>{{ $item->type }}</option>
+                                    @foreach (\App\Models\TypeModel::getTypes() as $type)
+                                        <option value="{{ $type->id }}" @if ($type->id === $item->typeId) {{ 'selected' }} @endif>{{ $type->type }}</option>
                                     @endforeach
                                 </select>
                             </div>

@@ -153,7 +153,12 @@ body {
 }
 
 .input, textarea {
+    color: rgb(150, 150, 150) !important;
     background-color: rgb(50, 50, 50) !important;
+}
+
+.input::placeholder, textarea::placeholder {
+    color: rgb(150, 150, 150);
 }
 
 .about {
@@ -574,7 +579,7 @@ body {
 .profile-footer a:hover {
     color: rgb(120, 120, 120);
 }
-.profile-resources-items-hint {
+.profile-resource-items-hint {
     margin-top: 45px;
     margin-left: 20px;
     margin-right: 20px;
