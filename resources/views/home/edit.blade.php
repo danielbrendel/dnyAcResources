@@ -74,7 +74,11 @@
                         <div class="field">
                             <label class="label">{{ __('app.item_download') }}</label>
                             <div class="control">
-                                <input class="input" type="text" name="download" placeholder="{{ __('app.item_download_placeholder') }}" value="{{ $item->download }}">
+                                @if (env('APP_ALLOW_DL_HOSTING'))
+                                    <input class="input" type="file" name="download" data-role="file" data-button-title="{{ $item->download }}">
+                                @else
+                                    <input class="input" type="text" name="download" placeholder="{{ __('app.item_download_placeholder') }}" value="{{ $item->download }}">
+                                @endif
                             </div>
                         </div>
 

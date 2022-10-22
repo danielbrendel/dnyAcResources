@@ -301,6 +301,24 @@ class AppModel extends Model
     }
 
     /**
+     * Indicate if file is a valid archive
+     * 
+     * @param $file
+     * @return bool
+     */
+    public static function isValidArchive($file)
+    {
+        $zip = new \ZipArchive();
+        $res = $zip->open($file, \ZipArchive::RDONLY);
+        if ($res === true) {
+            $zip->close();
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * Initialize newsletter sending
      *
      * @param $subject

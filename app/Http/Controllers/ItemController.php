@@ -253,18 +253,23 @@ class ItemController extends Controller
         try {
             parent::validateLogin();
 
-            $attr = request()->validate([
+            $valtable = [
                 'name' => 'required',
                 'summary' => 'required|max:120',
                 'type' => 'required|numeric',
                 'description' => 'required',
                 'creator' => 'required',
                 'tags' => 'nullable',
-                'download' => 'required',
-                'github' => 'required',
+                'github' => 'nullable',
                 'twitter' => 'nullable',
                 'website' => 'nullable'
-            ]);
+            ];
+
+            if (!env('APP_ALLOW_DL_HOSTING')) {
+                $valtable['download'] = 'required';
+            }
+
+            $attr = request()->validate($valtable);
 
             ItemModel::addItem($attr);
 
@@ -321,17 +326,22 @@ class ItemController extends Controller
         try {
             parent::validateLogin();
 
-            $attr = request()->validate([
+            $valtable = [
                 'summary' => 'required|max:120',
                 'type' => 'required|numeric',
                 'description' => 'required',
                 'creator' => 'required',
                 'tags' => 'nullable',
-                'download' => 'required',
-                'github' => 'required',
+                'github' => 'nullable',
                 'twitter' => 'nullable',
                 'website' => 'nullable'
-            ]);
+            ];
+
+            if (!env('APP_ALLOW_DL_HOSTING')) {
+                $valtable['download'] = 'required';
+            }
+
+            $attr = request()->validate($valtable);
 
             $user = User::getByAuthId();
 

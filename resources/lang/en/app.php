@@ -101,6 +101,7 @@ return [
     'profile_saved' => 'Profile has been saved',
     'edit_item' => 'Edit item',
     'select_logo' => 'Select logo',
+    'select_file' => 'Select file (ZIP)',
     'item_logo' => 'Logo',
     'submit_item' => 'Submit item',
     'submit' => 'Submit',

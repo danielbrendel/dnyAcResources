@@ -64,7 +64,7 @@ class ItemModel extends Model
             $item->summary = $attr['summary'];
             $item->description = $attr['description'];
             $item->tags = $attr['tags'] . ' ';
-            $item->download = $attr['download'];
+            $item->download = (!env('APP_ALLOW_DL_HOSTING')) ? $attr['download'] : '';
             $item->github = str_replace('https://github.com/', '', $attr['github']);
             $item->website = $attr['website'];
             $item->twitter = $attr['twitter'];
@@ -97,6 +97,27 @@ class ItemModel extends Model
                 unlink(public_path() . '/gfx/logos/' . $fname . '.' . $fext);
 
                 $item->logo = $fname . '_thumb.' . $fext;
+            }
+
+            if (env('APP_ALLOW_DL_HOSTING')) {
+                $download = request()->file('download');
+                if ($download !== null) {
+                    if ($download->getSize() > env('APP_MAXUPLOADSIZE')) {
+                        throw new \Exception(__('app.upload_size_exceeded'));
+                    }
+
+                    $fname = Str::slug($attr['name']) . '_' . uniqid('', true);
+                    $fext = $download->getClientOriginalExtension();
+
+                    $download->move(public_path() . '/downloads/', $fname . '.' . $fext);
+
+                    if (!AppModel::isValidArchive(public_path() . '/downloads/' . $fname . '.' . $fext)) {
+                        unlink(public_path() . '/downloads/' . $fname . '.' . $fext);
+                        throw new \Exception(__('app.invalid_archive_file'));
+                    }
+
+                    $item->download = asset('downloads/' . $fname . '.' . $fext);
+                }
             }
 
             $item->save();
