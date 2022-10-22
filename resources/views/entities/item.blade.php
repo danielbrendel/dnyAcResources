@@ -49,7 +49,10 @@
                     </div>
 
                     <div class="resource-item-full-download">
-                        <span><a class="button is-success" href="{{ $item->download }}"><i class="fas fa-download"></i>&nbsp;{{ __('app.item_download') }}</a></span>&nbsp;&nbsp;&nbsp;<span><a class="is-color-grey" href="{{ $item->download }}">{{ $item->download }}</a></span>
+                        <div><a class="button is-success" href="{{ $item->download }}"><i class="fas fa-download"></i>&nbsp;{{ __('app.item_download') }}</a></div>
+                        @if (!env('APP_ALLOW_DL_HOSTING'))
+                        <div><a class="is-color-grey" href="{{ $item->download }}">{{ $item->download }}</a></div>
+                        @endif
                     </div>
 
                     <div class="resource-item-full-user">
