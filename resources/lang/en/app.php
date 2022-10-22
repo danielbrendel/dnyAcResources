@@ -21,6 +21,8 @@ return [
     'register_email' => 'E-Mail',
     'register_password' => 'Password',
     'register_password_confirmation' => 'Password confirmation',
+    'banner_title' => env('APP_BANNER_TITLE', 'AC-Resources'),
+    'banner_slogan' => env('APP_BANNER_SLOGAN', 'Your portal to AssaultCube community resources'),
     'cancel' => 'Cancel',
     'email' => 'E-Mail',
     'close' => 'Close',

@@ -201,6 +201,31 @@ body {
   margin-bottom: 30px;
 }
 
+.banner-content {
+  position: relative;
+  top: 49%;
+  margin-left: 15px;
+}
+@media screen and (max-width: 390px) {
+  .banner-content {
+    transform: translateY(15%);
+  }
+}
+
+.banner-title {
+  color: rgb(100, 100, 100);
+  text-shadow: -1px -1px 0 rgb(150, 150, 150), 1px -1px 0 rgb(150, 150, 150), -1px 1px 0 rgb(150, 150, 150), 1px 1px 0 rgb(150, 150, 150);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2.5em;
+}
+
+.banner-slogan {
+  color: rgb(150, 150, 150);
+  text-shadow: -1px -1px 0 rgb(5, 5, 5), 1px -1px 0 rgb(5, 5, 5), -1px 1px 0 rgb(5, 5, 5), 1px 1px 0 rgb(5, 5, 5);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5em;
+}
+
 .footer {
   width: 100%;
   color: rgb(150, 150, 150);
