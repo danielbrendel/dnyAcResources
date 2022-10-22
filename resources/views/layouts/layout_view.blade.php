@@ -17,7 +17,7 @@
 
         <meta name="author" content="{{ env('APP_AUTHOR') }}">
         <meta name="description" content="{{ env('APP_DESCRIPTION') }}">
-        <meta name="tags" content="{{ env('APP_TAGS') }}">
+        <meta name="keywords" content="{{ env('APP_TAGS') }}">
 
         <title>{{ env('APP_NAME') }}@yield('title')</title>
 
