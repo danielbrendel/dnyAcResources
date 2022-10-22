@@ -66,9 +66,11 @@
 
                     <div class="resource-item-full-links">
                         @if (!isset($item->github->html_url))
-                        <div class="resource-item-full-links-github">
-                            <i class="fab fa-github"></i>&nbsp;<a href="https://github.com/{{ $item->github }}">{{ $item->github }}</a>
-                        </div>
+                            @if ((is_string($item->github)) && (strlen($item->github) > 0))
+                                <div class="resource-item-full-links-github">
+                                    <i class="fab fa-github"></i>&nbsp;<a href="https://github.com/{{ $item->github }}">{{ $item->github }}</a>
+                                </div>
+                            @endif
                         @endif
 
                         @if (($item->twitter !== null) && (is_string($item->twitter)) && (strlen($item->twitter) > 0))

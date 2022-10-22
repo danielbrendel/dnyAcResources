@@ -94,7 +94,7 @@
                         <div class="field">
                             <label class="label">{{ __('app.item_github') }}</label>
                             <div class="control">
-                                <input class="input" type="text" name="github" placeholder="{{ __('app.item_github_placeholder') }}" value="{{ old('github') }}" required>
+                                <input class="input" type="text" name="github" placeholder="{{ __('app.item_github_placeholder') }}" value="{{ old('github') }}">
                             </div>
                         </div>
 

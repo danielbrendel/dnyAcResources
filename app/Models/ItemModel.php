@@ -41,7 +41,7 @@ class ItemModel extends Model
     private static function storeItem($attr, $item, $userId = null, $isEdited = false)
     {
         try {
-            if (strpos($attr['github'], 'https://github.com') !== 0) {
+            if ((isset($attr['github'])) && (strlen($attr['github'] > 0)) && (strpos($attr['github'], 'https://github.com') !== 0)) {
                 throw new \Exception(__('app.invalid_github_link'));
             }
 
