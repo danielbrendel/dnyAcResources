@@ -16,11 +16,11 @@
 @section('content')
     <div class="container">
         <div class="columns">
-            <div class="column is-1"></div>
+            <div class="column is-2"></div>
 
-            <div class="column is-10">
+            <div class="column is-8">
                 <div class="resource-item-full">
-                    <div class="resource-item-full-image" style="background-image: url('{{ url('/gfx/logos/' . $item->logo) }}')"></div>
+                    <div class="resource-item-full-image" style="background-image: url('{{ asset('gfx/logos/' . $item->logo) }}')"></div>
 
                     <div class="resource-item-full-about">
                         <div class="resource-item-full-about-title">
@@ -45,6 +45,10 @@
                                     <span><a href="{{ url('/') }}?tag={{ $tag }}">#{{ $tag }}</a>&nbsp;</span>
                                 @endif
                             @endforeach
+                        </div>
+
+                        <div class="resource-item-full-preview-mobile">
+                            <a href="{{ asset('gfx/logos/' . $item->logo) }}"><img src="{{ asset('gfx/logos/' . $item->logo) }}" alt="Preview"/></a>
                         </div>
                     </div>
 
@@ -222,7 +226,7 @@
                 @endif
             </div>
 
-            <div class="column is-1"></div>
+            <div class="column is-2"></div>
         </div>
     </div>
 @endsection

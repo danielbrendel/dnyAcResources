@@ -320,12 +320,18 @@ body {
 }
 .resource-item-full-image {
     width: 100%;
-    height: 615px;
+    height: 492px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     @media screen and (max-width: 768px) {
+        display: none;
+    }
+}
+.resource-item-full-preview-mobile {
+    margin-bottom: 25px;
+    @media screen and (min-width: 769px) {
         display: none;
     }
 }
