@@ -375,7 +375,7 @@ window.vue = new Vue({
                     </div>
                     <div class="notification-info">
                         <div class="notification-item-message">` + elem.longMsg + `</div>
-                        <div class="notification-item-message is-color-grey is-font-size-small is-margin-top-5">` + elem.diffForHumans + `</div>
+                        <div class="notification-item-message-dark is-font-size-small is-margin-top-5">` + elem.diffForHumans + `</div>
                     </div>
                 </div>
             `;

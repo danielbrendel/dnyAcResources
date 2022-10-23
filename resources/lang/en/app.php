@@ -201,5 +201,6 @@ return [
     'newsletter_in_progress' => 'Newsletter sending is now in progress',
     'send' => 'Send',
     'delete_account' => 'Delete account',
-    'deleted_account_successfully' => 'Your account has been deleted'
+    'deleted_account_successfully' => 'Your account has been deleted',
+    'no_notifications_yet' => 'No notifications yet.'
 ];

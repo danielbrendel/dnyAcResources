@@ -2358,7 +2358,7 @@ window.vue = new Vue({
       color = 'is-notification-color-yellow';
     }
 
-    var html = "\n                <div class=\"notification-item " + (newItem ? 'is-new-notification' : '') + "\" id=\"notification-item-" + elem.id + "\">\n                    <div class=\"notification-icon\">\n                        <div class=\"notification-item-icon\"><i class=\"" + icon + " fa-3x " + color + "\"></i></div>\n                    </div>\n                    <div class=\"notification-info\">\n                        <div class=\"notification-item-message\">" + elem.longMsg + "</div>\n                        <div class=\"notification-item-message is-color-grey is-font-size-small is-margin-top-5\">" + elem.diffForHumans + "</div>\n                    </div>\n                </div>\n            ";
+    var html = "\n                <div class=\"notification-item " + (newItem ? 'is-new-notification' : '') + "\" id=\"notification-item-" + elem.id + "\">\n                    <div class=\"notification-icon\">\n                        <div class=\"notification-item-icon\"><i class=\"" + icon + " fa-3x " + color + "\"></i></div>\n                    </div>\n                    <div class=\"notification-info\">\n                        <div class=\"notification-item-message\">" + elem.longMsg + "</div>\n                        <div class=\"notification-item-message-dark is-font-size-small is-margin-top-5\">" + elem.diffForHumans + "</div>\n                    </div>\n                </div>\n            ";
     return html;
   }), _defineProperty(_methods, "reportUser", function reportUser(id) {
     window.vue.ajaxRequest('get', window.location.origin + '/user/' + id + '/report', {}, function (response) {

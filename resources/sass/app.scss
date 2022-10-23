@@ -704,7 +704,7 @@ a.dropdown-item:hover {
         right: 0px;
     }
     z-index: 4;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(100, 100, 100);
     display: none;
     border: 1px solid #ccc;
 }
@@ -735,12 +735,12 @@ a.dropdown-item:hover {
     position: relative;
     width: 100%;
     height: auto;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(100, 100, 100);
     padding: 21px;
     border-radius: 4px;
 }
 .notification-item:hover {
-    background-color: rgb(250, 250, 250);
+    background-color: rgb(120, 120, 120);
 }
 .notification-item-icon {
     display: inline-block;
@@ -758,12 +758,18 @@ a.dropdown-item:hover {
         width: 69%;
     }
 }
+.notification-item-message {
+    color: rgb(200, 200, 200);
+}
 .notification-item-message a {
-    color: rgb(100, 100, 100);
+    color: rgb(200, 200, 200);
     font-weight: bold;
 }
 .notification-item-message a:hover {
     text-decoration: underline;
+}
+.notification-item-message-dark {
+    color: rgb(150, 150, 150);
 }
 .is-new-notification {
     background-color: rgb(128, 255, 128);
