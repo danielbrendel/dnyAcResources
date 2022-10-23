@@ -16,7 +16,7 @@
         <div class="column is-4">
             <div class="footer-frame">
                 <div class="footer-content">
-                    &copy; {{ date('Y') }} by {{ env('APP_AUTHOR') }} | <span><a href="{{ url('/imprint') }}">{{ __('app.imprint') }}</a></span>&nbsp;&bull;&nbsp;<span><a href="{{ url('/tos') }}">{{ __('app.terms_of_service') }}</a></span> | <span class="is-pointer" title="GitHub" onclick="window.open('{{ env('APP_LINK_GITHUB') }}');"><i class="fab fa-github"></i></span>&nbsp;&nbsp;&nbsp;<span class="is-pointer" title="Twitter" onclick="window.open('{{ env('APP_LINK_TWITTER') }}');"><i class="fab fa-twitter"></i></span>
+                    &copy; {{ date('Y') }} by {{ env('APP_AUTHOR') }} | <span><a href="{{ url('/imprint') }}">{{ __('app.imprint') }}</a></span>&nbsp;&bull;&nbsp;<span><a href="{{ url('/tos') }}">{{ __('app.terms_of_service') }}</a></span> | <span><a href="{{ env('APP_LINK_GITHUB') }}" title="GitHub"><i class="fab fa-github"></i></a></span>&nbsp;&nbsp;&nbsp;<span><a href="{{ env('APP_LINK_TWITTER') }}" title="Twitter"><i class="fab fa-twitter"></i></a></span>
                 </div>
             </div>
         </div>
