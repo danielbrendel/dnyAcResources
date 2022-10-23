@@ -24,7 +24,7 @@
     <div id="navbarMenu" class="navbar-menu">
         <div class="navbar-start"></div>
 
-        @if ((isset($fw_item_filter)) && ($fw_item_filter))
+        @if ((isset($res_item_filter)) && ($res_item_filter))
         <div class="navbar-options">
             <center>
                 <div class="navbar-item has-dropdown is-hoverable is-inline-block">
