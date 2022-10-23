@@ -11,8 +11,8 @@
 
 require('./bootstrap');
 
-const ITEM_MAX_NAME_LENGTH = 30;
-const ITEM_MAX_SUMMARY_LENGTH = 50;
+const ITEM_MAX_NAME_LENGTH = 20;
+const ITEM_MAX_SUMMARY_LENGTH = 40;
 
 window.vue = new Vue({
     el: '#main',
@@ -254,7 +254,7 @@ window.vue = new Vue({
                 elName = elName.substr(0, ITEM_MAX_NAME_LENGTH - 3) + '...';
             }
 
-            let elSummary = elem.name;
+            let elSummary = elem.summary;
             if (elSummary.length > ITEM_MAX_SUMMARY_LENGTH) {
                 elSummary = elSummary.substr(0, ITEM_MAX_SUMMARY_LENGTH - 3) + '...';
             }
@@ -268,6 +268,10 @@ window.vue = new Vue({
                             <div class="resource-item-about-title">` + elName + `</div>
                             <div class="resource-item-about-hint">` + elSummary + `</div>
                             <div class="resource-item-about-tags">` + tags + `</div>
+                        </div>
+
+                        <div class="resource-item-preview-mobile">
+                            <a href="` + window.location.origin + `/view/` + elem.slug + `"><img src="` + window.location.origin + '/gfx/logos/' + elem.logo + `" alt="Preview"/></a>
                         </div>
 
                         <div class="resource-item-stats">

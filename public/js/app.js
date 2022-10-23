@@ -2076,8 +2076,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-var ITEM_MAX_NAME_LENGTH = 30;
-var ITEM_MAX_SUMMARY_LENGTH = 50;
+var ITEM_MAX_NAME_LENGTH = 20;
+var ITEM_MAX_SUMMARY_LENGTH = 40;
 window.vue = new Vue({
   el: '#main',
   data: {
@@ -2295,13 +2295,13 @@ window.vue = new Vue({
       elName = elName.substr(0, ITEM_MAX_NAME_LENGTH - 3) + '...';
     }
 
-    var elSummary = elem.name;
+    var elSummary = elem.summary;
 
     if (elSummary.length > ITEM_MAX_SUMMARY_LENGTH) {
       elSummary = elSummary.substr(0, ITEM_MAX_SUMMARY_LENGTH - 3) + '...';
     }
 
-    var html = "\n                <a href=\"" + window.location.origin + "/view/" + elem.slug + "\">\n                    <div class=\"resource-item is-pointer\">\n                        <div class=\"resource-item-image\" style=\"background-image: url('" + window.location.origin + '/gfx/logos/' + elem.logo + "')\"></div>\n\n                        <div class=\"resource-item-about\">\n                            <div class=\"resource-item-about-title\">" + elName + "</div>\n                            <div class=\"resource-item-about-hint\">" + elSummary + "</div>\n                            <div class=\"resource-item-about-tags\">" + tags + "</div>\n                        </div>\n\n                        <div class=\"resource-item-stats\">\n                            <div class=\"resource-item-stats-stars\">\n                                " + stars + "\n                                " + window.vue.translationTable.reviewCount.replace(':count', elem.review_count) + "\n                            </div>\n\n                            <div class=\"resource-item-stats-views\">\n                                <i class=\"far fa-eye\"></i>&nbsp;" + elem.views + "\n                            </div>\n                        </div>\n                    </div>\n                </a>\n            ";
+    var html = "\n                <a href=\"" + window.location.origin + "/view/" + elem.slug + "\">\n                    <div class=\"resource-item is-pointer\">\n                        <div class=\"resource-item-image\" style=\"background-image: url('" + window.location.origin + '/gfx/logos/' + elem.logo + "')\"></div>\n\n                        <div class=\"resource-item-about\">\n                            <div class=\"resource-item-about-title\">" + elName + "</div>\n                            <div class=\"resource-item-about-hint\">" + elSummary + "</div>\n                            <div class=\"resource-item-about-tags\">" + tags + "</div>\n                        </div>\n\n                        <div class=\"resource-item-preview-mobile\">\n                            <a href=\"" + window.location.origin + "/view/" + elem.slug + "\"><img src=\"" + window.location.origin + '/gfx/logos/' + elem.logo + "\" alt=\"Preview\"/></a>\n                        </div>\n\n                        <div class=\"resource-item-stats\">\n                            <div class=\"resource-item-stats-stars\">\n                                " + stars + "\n                                " + window.vue.translationTable.reviewCount.replace(':count', elem.review_count) + "\n                            </div>\n\n                            <div class=\"resource-item-stats-views\">\n                                <i class=\"far fa-eye\"></i>&nbsp;" + elem.views + "\n                            </div>\n                        </div>\n                    </div>\n                </a>\n            ";
     return html;
   }), _defineProperty(_methods, "renderReview", function renderReview(elem, user) {
     var isAdmin = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;

@@ -258,7 +258,7 @@ body {
   margin-top: 20px;
   margin-left: 10px;
   margin-right: 10px;
-  width: 530px;
+  width: 345px;
 }
 @media screen and (max-width: 546px) {
   .resource-item {
@@ -268,7 +268,7 @@ body {
 
 .resource-item-image {
   width: 100%;
-  height: 304px;
+  height: 225px;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border-top-left-radius: 25px;
@@ -276,6 +276,15 @@ body {
 }
 @media screen and (max-width: 768px) {
   .resource-item-image {
+    display: none;
+  }
+}
+
+.resource-item-preview-mobile {
+  margin-bottom: 12px;
+}
+@media screen and (min-width: 769px) {
+  .resource-item-preview-mobile {
     display: none;
   }
 }
