@@ -407,13 +407,11 @@ a.dropdown-item:hover {
 
 .resource-item-stats-stars {
   display: inline-block;
-  color: rgb(50, 50, 50) !important;
 }
 
 .resource-item-stats-views {
   display: inline-block;
   float: right;
-  color: rgb(50, 50, 50) !important;
 }
 
 .resource-item-full {

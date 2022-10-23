@@ -228,7 +228,7 @@ class ItemModel extends Model
     public static function queryUserItems($userId, $paginate = null)
     {
         try {
-            $query = static::where('userId', '=', $userId);
+            $query = static::where('approved', '=', true)->where('locked', '=', false)->where('userId', '=', $userId);
 
             if ($paginate !== null) {
                 $query->where('id', '<', $paginate);

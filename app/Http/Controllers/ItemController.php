@@ -32,6 +32,9 @@ use App\Models\User;
  */
 class ItemController extends Controller
 {
+    const ITEM_MAX_NAME_LENGTH = 20;
+    const ITEM_MAX_SUMMARY_LENGTH = 40;
+
     /**
      * Query item list
      * 
@@ -197,7 +200,7 @@ class ItemController extends Controller
                 $item->github = $old_github;
             }
             
-            $others = ItemModel::queryRandom($item->id, $item->langId, env('APP_QUERYRANDOMCOUNT'));
+            $others = ItemModel::queryRandom($item->id, $item->typeId, env('APP_QUERYRANDOMCOUNT'));
             foreach ($others as &$other) {
                 $user = User::where('id', '=', $other->userId)->first();
                 $other->userData = new \stdClass();
@@ -208,6 +211,14 @@ class ItemController extends Controller
                 $other->avg_stars = ReviewModel::getAverageStars($item->id);
                 $other->review_count = ReviewModel::getReviewCount($item->id);
                 $other->tags = explode(' ', $other->tags);
+
+                if (strlen($other->name) > self::ITEM_MAX_NAME_LENGTH) {
+                    $other->name = substr($other->name, 0, self::ITEM_MAX_NAME_LENGTH - 3) . '...';
+                }
+
+                if (strlen($other->summary) > self::ITEM_MAX_SUMMARY_LENGTH) {
+                    $other->summary = substr($other->summary, 0, self::ITEM_MAX_SUMMARY_LENGTH - 3) . '...';
+                }
             }
 
             return view('entities.item', [
