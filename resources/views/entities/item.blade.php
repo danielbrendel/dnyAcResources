@@ -124,15 +124,17 @@
 
                 <div class="reviews">
                     <div class="reviews-hint">
-                        {{ __('app.reviews') }}&nbsp;
+                        <div class="is-inline-block">{{ __('app.reviews') }}&nbsp;</div>
                     
-                        @for ($i = 0; $i < 5; $i++)
-                            @if ($i < $item->avg_stars)
-                                <span class="review-star-color"><i class="fas fa-star"></i></span>
-                            @else
-                                <span class="review-star-color"><i class="far fa-star"></i></span>
-                            @endif
-                        @endfor
+                        <div class="is-inline-block">
+                            @for ($i = 0; $i < 5; $i++)
+                                @if ($i < $item->avg_stars)
+                                    <span class="review-star-color"><i class="fas fa-star"></i></span>
+                                @else
+                                    <span class="review-star-color"><i class="far fa-star"></i></span>
+                                @endif
+                            @endfor
+                        </div>
                     </div>
 
                     @auth
