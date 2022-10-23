@@ -198,7 +198,11 @@ body {
   height: 200px;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-bottom: 30px;
+}
+@media screen and (min-width: 1089px) {
+  .banner {
+    margin-bottom: 30px;
+  }
 }
 
 .banner-content {
@@ -224,6 +228,36 @@ body {
   text-shadow: -1px -1px 0 rgb(5, 5, 5), 1px -1px 0 rgb(5, 5, 5), -1px 1px 0 rgb(5, 5, 5), 1px 1px 0 rgb(5, 5, 5);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.5em;
+}
+
+.mobile-filter {
+  width: 100%;
+  height: 59px;
+  padding-top: 11px;
+  background-color: rgb(50, 50, 50);
+}
+@media screen and (min-width: 1087px) {
+  .mobile-filter {
+    display: none;
+  }
+}
+
+.mobile-filter-dropdown {
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.dropdown-content {
+  background-color: rgb(50, 50, 50);
+}
+
+a.dropdown-item {
+  color: rgb(200, 200, 200);
+}
+
+a.dropdown-item:hover {
+  color: rgb(250, 250, 250);
+  background-color: rgb(50, 50, 50);
 }
 
 .footer {

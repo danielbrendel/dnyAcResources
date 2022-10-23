@@ -2249,6 +2249,12 @@ window.vue = new Vue({
     if (obj) {
       obj.classList.toggle('is-hidden');
     }
+  }), _defineProperty(_methods, "toggleDropdown2", function toggleDropdown2(elem) {
+    if (elem.classList.contains('is-active')) {
+      elem.classList.remove('is-active');
+    } else {
+      elem.classList.add('is-active');
+    }
   }), _defineProperty(_methods, "toggleOverlay", function toggleOverlay(ident) {
     var obj = document.getElementById(ident);
 

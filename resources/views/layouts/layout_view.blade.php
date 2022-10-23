@@ -47,6 +47,7 @@
         <main id="main">
             @include('widgets.navbar')
             @include('widgets.banner')
+            @include('widgets.filter')
 
             <div id="cookie-consent" class="cookie-consent has-text-centered is-top-53">
                 <div class="cookie-consent-inner">

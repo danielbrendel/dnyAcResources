@@ -205,6 +205,14 @@ window.vue = new Vue({
             }
         },
 
+        toggleDropdown2: function(elem) {
+            if (elem.classList.contains('is-active')) {
+                elem.classList.remove('is-active');
+            } else {
+                elem.classList.add('is-active');
+            }
+        },
+
         toggleOverlay: function(ident) {
             let obj = document.getElementById(ident);
             if (obj) {
