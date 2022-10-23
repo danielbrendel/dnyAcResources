@@ -11,6 +11,9 @@
 
 require('./bootstrap');
 
+const ITEM_MAX_NAME_LENGTH = 30;
+const ITEM_MAX_SUMMARY_LENGTH = 50;
+
 window.vue = new Vue({
     el: '#main',
 
@@ -246,14 +249,24 @@ window.vue = new Vue({
                 }
             }
 
+            let elName = elem.name;
+            if (elName.length > ITEM_MAX_NAME_LENGTH) {
+                elName = elName.substr(0, ITEM_MAX_NAME_LENGTH - 3) + '...';
+            }
+
+            let elSummary = elem.name;
+            if (elSummary.length > ITEM_MAX_SUMMARY_LENGTH) {
+                elSummary = elSummary.substr(0, ITEM_MAX_SUMMARY_LENGTH - 3) + '...';
+            }
+
             let html = `
                 <a href="` + window.location.origin + `/view/` + elem.slug + `">
                     <div class="resource-item is-pointer">
                         <div class="resource-item-image" style="background-image: url('` + window.location.origin + '/gfx/logos/' + elem.logo + `')"></div>
 
                         <div class="resource-item-about">
-                            <div class="resource-item-about-title">` + elem.name + `</div>
-                            <div class="resource-item-about-hint">` + elem.summary + `</div>
+                            <div class="resource-item-about-title">` + elName + `</div>
+                            <div class="resource-item-about-hint">` + elSummary + `</div>
                             <div class="resource-item-about-tags">` + tags + `</div>
                         </div>
 
