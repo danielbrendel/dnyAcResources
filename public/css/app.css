@@ -167,6 +167,12 @@ body {
   border-radius: 25px;
 }
 
+@media screen and (max-width: 1089px) {
+  .navbar-filter {
+    display: none;
+  }
+}
+
 .input, textarea, span.button {
   color: rgb(150, 150, 150) !important;
   background-color: rgb(50, 50, 50) !important;
